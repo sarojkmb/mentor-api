@@ -1,3 +1,3 @@
 mvn clean install
 
-mvn spring-boot:run
+mvn spring-boot:run -Pdev
