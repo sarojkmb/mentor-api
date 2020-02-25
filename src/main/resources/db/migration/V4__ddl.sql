@@ -10,14 +10,9 @@ CREATE TABLE public.person
     dob timestamp,
     gender character varying(255) COLLATE pg_catalog."default",
     CONSTRAINT person_pkey PRIMARY KEY (person_id)
-)
-WITH (
-    OIDS = FALSE
-)
-TABLESPACE pg_default;
+);
 
-ALTER TABLE public.person
-    OWNER to abrolly_admin;
+--ALTER TABLE public.person OWNER to abrolly_admin;
 
 
 -- Table authentication
@@ -33,14 +28,9 @@ CREATE TABLE public.authentication
     access_token character varying(255) COLLATE pg_catalog."default",
     valid_ts timestamp,
     CONSTRAINT authentication_pkey PRIMARY KEY (auth_id)
-)
-WITH (
-    OIDS = FALSE
-)
-TABLESPACE pg_default;
+);
 
-ALTER TABLE public.person
-    OWNER to abrolly_admin;
+--ALTER TABLE public.person OWNER to abrolly_admin;
 
 
 -- Table expertise
@@ -53,14 +43,9 @@ CREATE TABLE public.expertise
     expertise_name character varying(255) COLLATE pg_catalog."default",
     expertise_area character varying(255) COLLATE pg_catalog."default",
     CONSTRAINT expertise_pkey PRIMARY KEY (expertise_id)
-)
-WITH (
-    OIDS = FALSE
-)
-TABLESPACE pg_default;
+);
 
-ALTER TABLE public.person
-    OWNER to abrolly_admin;
+--ALTER TABLE public.person OWNER to abrolly_admin;
 
 
 -- Table my_expertise
@@ -73,14 +58,9 @@ CREATE TABLE my_expertise
     person_id integer,
     expertise_id integer,
     CONSTRAINT my_expertise_id_pkey PRIMARY KEY (my_expertise_id)
-)
-WITH (
-     OIDS = FALSE
- )
- TABLESPACE pg_default;
+);
 
- ALTER TABLE public.person
-     OWNER to abrolly_admin;
+-- ALTER TABLE public.person OWNER to abrolly_admin;
 
 
 
@@ -96,14 +76,9 @@ CREATE TABLE public.interest
     interest_name character varying(255) COLLATE pg_catalog."default" NOT NULL,
     interest_area character varying(255) COLLATE pg_catalog."default" NOT NULL,
     CONSTRAINT interest_id_pkey PRIMARY KEY (interest_id)
-)
- WITH (
-      OIDS = FALSE
-  )
-  TABLESPACE pg_default;
+);
 
-  ALTER TABLE public.person
-      OWNER to abrolly_admin;
+--  ALTER TABLE public.person OWNER to abrolly_admin;
 
 
 -- Table my_interest
@@ -116,14 +91,9 @@ CREATE TABLE my_interest
     person_id integer,
     interest_id integer,
     CONSTRAINT my_interest_id_pkey PRIMARY KEY (my_interest_id)
-)
- WITH (
-      OIDS = FALSE
-  )
-  TABLESPACE pg_default;
+);
 
-  ALTER TABLE public.person
-      OWNER to abrolly_admin;
+--  ALTER TABLE public.person OWNER to abrolly_admin;
 
 
   -- Table mentor_mentee
@@ -138,14 +108,26 @@ CREATE TABLE my_interest
      mentee_id integer,
      active_ind BOOLEAN ,
      CONSTRAINT mm_id_pkey PRIMARY KEY (mm_id)
-  )
-  WITH (
-       OIDS = FALSE
-   )
-   TABLESPACE pg_default;
+  );
 
-   ALTER TABLE public.person
-       OWNER to abrolly_admin;
+--   ALTER TABLE public.person OWNER to abrolly_admin;
+
+
+
+--Host
+--ec2-184-72-235-80.compute-1.amazonaws.com
+--Database
+--d7p69ssr5k4kq2
+--User
+--xljkvjnvvvimpq
+--Port
+--5432
+--Password
+--1e0a6a876abad59cadbcb5bc6ea96caaa1f6d38fd9593ad11ce93ac433b02684
+--URI
+--postgres://xljkvjnvvvimpq:1e0a6a876abad59cadbcb5bc6ea96caaa1f6d38fd9593ad11ce93ac433b02684@ec2-184-72-235-80.compute-1.amazonaws.com:5432/d7p69ssr5k4kq2
+--Heroku CLI
+--heroku pg:psql postgresql-graceful-67014 --app m-i-mentor
 
 
 
